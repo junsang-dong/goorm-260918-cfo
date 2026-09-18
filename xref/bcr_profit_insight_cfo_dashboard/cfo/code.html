@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "slate-muted": "#64748B",
+        "profit-emerald-bg": "#ECFDF5",
+        "on-error": "#ffffff",
+        "surface-container": "#eaedff",
+        "tertiary-fixed-dim": "#68dba9",
+        "error": "#ba1a1a",
+        "slate-border-subtle": "#F1F5F9",
+        "on-tertiary-fixed": "#002114",
+        "surface-container-highest": "#dae2fd",
+        "inverse-surface": "#283044",
+        "primary": "#00288e",
+        "secondary-container": "#316bf3",
+        "on-background": "#131b2e",
+        "secondary": "#0051d5",
+        "on-secondary-fixed": "#00174b",
+        "on-error-container": "#93000a",
+        "on-secondary-container": "#fefcff",
+        "surface-dim": "#d2d9f4",
+        "surface-container-high": "#e2e7ff",
+        "surface-variant": "#dae2fd",
+        "primary-container": "#1e40af",
+        "on-surface": "#131b2e",
+        "tertiary": "#003d28",
+        "secondary-fixed": "#dbe1ff",
+        "profit-emerald": "#059669",
+        "on-primary-fixed-variant": "#173bab",
+        "surface": "#faf8ff",
+        "on-primary-container": "#a8b8ff",
+        "tertiary-container": "#00563a",
+        "on-primary": "#ffffff",
+        "error-container": "#ffdad6",
+        "primary-fixed": "#dde1ff",
+        "on-tertiary-fixed-variant": "#005137",
+        "outline-variant": "#c4c5d5",
+        "background": "#faf8ff",
+        "on-secondary": "#ffffff",
+        "slate-border": "#E2E8F0",
+        "surface-container-low": "#f2f3ff",
+        "loss-crimson": "#DC2626",
+        "slate-surface": "#F8FAFC",
+        "on-secondary-fixed-variant": "#003ea8",
+        "surface-container-lowest": "#ffffff",
+        "outline": "#757684",
+        "on-tertiary": "#ffffff",
+        "inverse-primary": "#b8c4ff",
+        "info-slate": "#475569",
+        "tertiary-fixed": "#85f8c4",
+        "on-tertiary-container": "#5bcf9e",
+        "risk-amber-bg": "#FFFBEB",
+        "surface-bright": "#faf8ff",
+        "on-surface-variant": "#444653",
+        "secondary-fixed-dim": "#b4c5ff",
+        "loss-crimson-bg": "#FEF2F2",
+        "primary-fixed-dim": "#b8c4ff",
+        "on-primary-fixed": "#001453",
+        "inverse-on-surface": "#eef0ff",
+        "info-slate-bg": "#F1F5F9",
+        "risk-amber": "#D97706",
+        "surface-tint": "#3755c3"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.125rem",
+        "lg": "0.25rem",
+        "xl": "0.5rem",
+        "full": "0.75rem"
+      },
+      "spacing": {
+        "space-md": "1rem",
+        "margin": "1rem",
+        "space-sm": "0.5rem",
+        "space-xl": "2rem",
+        "space-lg": "1.5rem",
+        "gutter-desktop": "1.5rem",
+        "space-xs": "0.25rem",
+        "gutter": "1rem",
+        "margin-desktop": "2rem"
+      },
+      "fontFamily": {
+        "headline-md": ["Inter"],
+        "tabular-data": ["JetBrains Mono"],
+        "headline-lg": ["Inter"],
+        "body-lg": ["Inter"],
+        "body-md": ["Inter"],
+        "display-lg-mobile": ["Inter"],
+        "kpi-value": ["Inter"],
+        "body-sm": ["Inter"],
+        "headline-sm": ["Inter"],
+        "display-lg": ["Inter"],
+        "code-sm": ["JetBrains Mono"],
+        "label-md": ["Inter"]
+      },
+      "fontSize": {
+        "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+        "tabular-data": ["13px", {"lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+        "display-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+        "kpi-value": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+        "headline-sm": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "code-sm": ["11px", {"lineHeight": "16px", "fontWeight": "400"}],
+        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}]
+      }
+    }
+  }
+};</script></head><body class="bg-slate-surface text-on-surface font-body-md text-body-md antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-slate-border shadow-[0_1px_4px_rgba(15,23,42,0.04)]"><div class="h-20 w-full px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="Profit Insight AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WASnYkzUjP_H32NduDy-lETqu2HQKK-ufL0wO1fHMaV5IhIr_BJjkVXlY3Z6YozgcKMpwTM_opiBcVorewIakmzxbEsS5KtBh29QmvppWDLWE0cRL2LIEMQ1EAFT7QrZzOGCXevG7k2GKWUKiFglTWF6fpOsrwf3MFBPzxd0N9gMskzVxHX_t_NWYtPWe3re5eo7z3m2mbBGKB9cgPspa3iELhEsPZGw1oHdhB1RkSDY-WCDhHHQsz0TFE"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-bold">Profit Insight AI</span><span class="px-space-xs py-0.5 bg-surface-container-low text-primary text-label-md font-label-md rounded border border-slate-border">Enterprise</span></div><span class="text-label-md font-label-md text-slate-muted">Blue Cloud Robotics</span></div></div><div class="h-6 w-px bg-slate-border hidden xl:block"></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-profit-emerald-bg border border-profit-emerald/20 text-profit-emerald"><span class="w-2 h-2 rounded-full bg-profit-emerald animate-pulse"></span><span class="text-label-md font-label-md font-medium tracking-tight">2025 회계연도 실적 집계 완료 (검증 오류 0건)</span></div></div><div class="flex items-center gap-space-md"><button class="hidden sm:inline-flex items-center gap-space-xs px-space-md py-space-xs h-9 bg-surface-container-lowest hover:bg-slate-surface text-on-surface border border-slate-border rounded-lg text-body-sm font-body-sm font-medium transition-colors shadow-[0_1px_2px_rgba(15,23,42,0.05)]" type="button"><span class="material-symbols-outlined text-base text-slate-muted">upload_file</span><span>Excel 업로드 (.xlsx)</span></button><div class="relative"><button class="flex items-center gap-space-xs px-space-sm py-space-xs h-9 bg-surface-container-lowest hover:bg-slate-surface text-on-surface border border-slate-border rounded-lg text-body-sm font-body-sm font-medium transition-colors" type="button"><span class="material-symbols-outlined text-base text-slate-muted">calendar_month</span><span class="font-tabular-data text-tabular-data">2025년 전체 (연간)</span><span class="material-symbols-outlined text-base text-slate-muted">expand_more</span></button></div><div class="h-6 w-px bg-slate-border"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-slate-border" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEd6S-nT-kvKLdIi33nfoDLchFkPl08QOH96BO7mpX3PvG_BIWHFvUslUQmv44X2tcqaj5Tqm38LQgrIDbdGDHDYrL0Z1OsNzImTTWHUXZcoHbkjfk1BzmbPKWG88AiWMclhEZQmalzHzC5rtAG8Uoum5usgnO-sG8Ai1naF4oGHlXJ9qarBGXt1XH4EHC2mks6TYDJj8kq7_RGu5tz97RvgNjh5idkpvggKDkDCtvXuMBESS16OCdiQ"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-profit-emerald border-2 border-surface-container-lowest rounded-full"></span></div><div class="flex flex-col text-left"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-body-sm font-semibold text-on-surface">박민재 CFO</span><span class="px-1.5 py-0.2 bg-primary/10 text-primary rounded text-code-sm font-code-sm font-semibold uppercase">CPA</span></div><span class="text-label-md font-label-md text-slate-muted">최고재무책임자</span></div></div></div></div><div class="w-full px-space-lg bg-surface-container-lowest border-t border-slate-border-subtle flex items-center justify-between"><nav class="flex items-center gap-space-lg" data-active-classes="text-primary font-semibold border-b-2 border-primary"><a aria-current="page" class="py-2.5 transition-colors text-primary font-semibold border-b-2 border-primary" data-path="overview-dashboard" href="#">대시보드</a><a class="text-on-surface-variant hover:text-on-surface text-body-sm font-body-sm py-2.5 transition-colors" data-path="data-validation-and-audit" href="#">데이터 검증</a><a class="text-on-surface-variant hover:text-on-surface text-body-sm font-body-sm py-2.5 transition-colors" data-path="product-profitability" href="#">제품별 수익성</a><a class="text-on-surface-variant hover:text-on-surface text-body-sm font-body-sm py-2.5 transition-colors" data-path="customer-margin-analysis" href="#">고객별 수익성</a><a class="text-on-surface-variant hover:text-on-surface text-body-sm font-body-sm py-2.5 transition-colors" data-path="discount-and-margin-simulator" href="#">할인 시뮬레이터</a><a class="text-on-surface-variant hover:text-on-surface text-body-sm font-body-sm py-2.5 transition-colors" data-path="ai-executive-report" href="#">AI 경영 보고서</a></nav><div class="hidden lg:flex items-center gap-space-md text-label-md font-label-md text-slate-muted py-2.5"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-profit-emerald">verified_user</span><span>감사 추적성 활성화 (IFRS 준수)</span></div><span class="text-slate-border">|</span><div class="flex items-center gap-1"><span class="font-code-sm text-code-sm text-slate-muted">REV: 2025.Q4-V2.1</span></div></div></div></header><main class="w-full pt-20 bg-slate-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- Top Command & Action Bar -->
+<div class="w-full px-space-lg py-space-md bg-surface-container-lowest">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md">
+<!-- Title & Audit Meta -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="px-space-xs py-0.5 rounded bg-primary text-on-primary font-code-sm text-code-sm font-semibold tracking-wider uppercase">CFO Portal</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">2025년 경영진 총괄 손익 및 관리회계 분석</span>
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-profit-emerald-bg text-profit-emerald font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm">verified</span>
+            CPA 실무 검증 완료
+          </span>
+</div>
+<div class="flex items-center gap-space-md flex-wrap text-slate-muted font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">date_range</span>
+            회계기간: 2025.01.01 ~ 2025.12.31 (연간 결산 확정)
+          </span>
+<span>•</span>
+<span class="font-tabular-data text-tabular-data">매출 전표 240건 (100% 매칭)</span>
+<span>•</span>
+<span class="font-tabular-data text-tabular-data">표준단위원가 매핑 36건 (검증오류 0건)</span>
+</div>
+</div>
+<!-- Action Group -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs bg-primary hover:bg-primary-container text-on-primary rounded-lg font-headline-sm text-body-sm transition-all shadow-sm active:scale-95" id="btnAiDraft" type="button">
+<span class="material-symbols-outlined text-base text-tertiary-fixed">auto_awesome</span>
+<span>AI 경영 보고서 생성</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs bg-surface-container-lowest hover:bg-slate-surface text-on-surface rounded-lg font-body-sm text-body-sm shadow-sm transition-colors" id="btnReaudit" type="button">
+<span class="material-symbols-outlined text-base text-slate-muted">rule</span>
+<span>원가 정합성 재검증</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-lowest hover:bg-slate-surface text-on-surface rounded-lg font-body-sm text-body-sm shadow-sm transition-colors" id="btnPdfExport" title="PDF 이사회 보고용 인쇄" type="button">
+<span class="material-symbols-outlined text-base text-slate-muted">picture_as_pdf</span>
+<span class="hidden sm:inline">CFO 브리핑 출력</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Operational Integrity Banner -->
+<div class="w-full px-space-lg py-space-sm bg-profit-emerald-bg">
+<div class="flex items-center justify-between gap-space-md flex-wrap">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-profit-emerald text-lg">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">
+<strong class="font-semibold text-profit-emerald">데이터 정합성 검증 완료:</strong> 240건의 매출 거래 및 표준단위원가 전건 무결성 확인 (오류 0건). 배송비 및 사양변경비가 정산 반영된 <strong>관리회계상 조정이익</strong> 기준입니다.
+        </span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-code-sm text-code-sm text-profit-emerald font-medium">단위: KRW (원) / IFRS 연결 기준 부합</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-lowest text-slate-muted font-code-sm text-code-sm">Hash: 8F7E-2025Q4-REVOK</span>
+</div>
+</div>
+</div>
+<!-- Content Workspace Container -->
+<div class="w-full px-space-lg py-space-lg flex flex-col gap-space-lg">
+<!-- 4-Column Executive KPI Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- KPI 1: 총 매출액 -->
+<div class="p-space-lg bg-surface-container-lowest rounded-lg shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-0.5">
+<span class="font-label-md text-label-md uppercase tracking-wider text-slate-muted">총 실현 매출액 (Revenue)</span>
+<span class="font-code-sm text-code-sm text-slate-muted">총 240건 거래 합산</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-code-sm text-code-sm font-semibold">정상 집계</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-kpi-value text-kpi-value text-on-surface tracking-tight">₩2,953,534,400</span>
+</div>
+<span class="font-body-sm text-body-sm text-slate-muted">약 <strong class="font-headline-sm text-headline-sm text-on-surface">29.5억 원</strong> (계획 대비 104.2%)</span>
+</div>
+<div class="pt-space-xs flex items-center justify-between font-label-md text-label-md">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-profit-emerald-bg text-profit-emerald">
+<span class="material-symbols-outlined text-xs">trending_up</span>
+            +12.4% YoY
+          </span>
+<span class="text-slate-muted">2024년 ₩26.28억</span>
+</div>
+</div>
+<!-- KPI 2: 총 추정 매출원가 -->
+<div class="p-space-lg bg-surface-container-lowest rounded-lg shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-0.5">
+<span class="font-label-md text-label-md uppercase tracking-wider text-slate-muted">추정 매출원가 (COGS)</span>
+<span class="font-code-sm text-code-sm text-slate-muted">표준단위원가 BOM 기준</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-info-slate-bg text-info-slate font-code-sm text-code-sm font-semibold">표준원가법</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-kpi-value text-kpi-value text-on-surface tracking-tight">₩2,181,690,000</span>
+</div>
+<div class="w-full bg-slate-surface rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 73.87%"></div>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between font-label-md text-label-md">
+<span class="text-slate-muted">매출원가율 <strong class="text-on-surface font-tabular-data text-tabular-data">73.87%</strong></span>
+<span class="text-slate-muted font-code-sm text-code-sm">재료비 59.6% / 노무 24.3%</span>
+</div>
+</div>
+<!-- KPI 3: 총 조정이익 -->
+<div class="p-space-lg bg-surface-container-lowest rounded-lg shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-0.5">
+<span class="font-label-md text-label-md uppercase tracking-wider text-slate-muted">총 조정이익 (Adjusted Profit)</span>
+<span class="font-code-sm text-code-sm text-profit-emerald font-medium">물류비·사양변경비 공제 후</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-profit-emerald-bg text-profit-emerald font-code-sm text-code-sm font-semibold">흑자 견고</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-kpi-value text-kpi-value text-profit-emerald tracking-tight">₩771,844,400</span>
+</div>
+<span class="font-body-sm text-body-sm text-slate-muted">매출총이익 7.98억 - 간접직접비 2,660만</span>
+</div>
+<div class="pt-space-xs flex items-center justify-between font-label-md text-label-md">
+<span class="text-slate-muted">배송비 -₩18.4M</span>
+<span class="text-slate-muted">사양변경비 -₩8.2M</span>
+</div>
+</div>
+<!-- KPI 4: 평균 조정이익률 & 할인율 -->
+<div class="p-space-lg bg-surface-container-lowest rounded-lg shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-0.5">
+<span class="font-label-md text-label-md uppercase tracking-wider text-slate-muted">평균 조정이익률 / 할인율</span>
+<span class="font-code-sm text-code-sm text-risk-amber font-medium">할인율 관리 유의</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-risk-amber-bg text-risk-amber font-code-sm text-code-sm font-semibold">주의 관찰</span>
+</div>
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-slate-muted">조정이익률</span>
+<span class="font-kpi-value text-kpi-value text-on-surface">26.13%</span>
+</div>
+<div class="h-8 w-px bg-slate-surface"></div>
+<div class="flex flex-col items-end">
+<span class="font-label-md text-label-md text-slate-muted">평균 할인율</span>
+<span class="font-kpi-value text-kpi-value text-loss-crimson">6.80%</span>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between font-label-md text-label-md">
+<span class="text-risk-amber font-medium">전년비 할인율 +1.4%p</span>
+<span class="text-slate-muted">C017(15.0%) 원인</span>
+</div>
+</div>
+</div>
+<!-- Interactive Analysis Grid: 60% Left / 40% Right Bento Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: Product Profit Matrix & Trend Chart (7 cols) -->
+<div class="xl:col-span-7 flex flex-col gap-space-lg">
+<!-- Product Line Contribution Stack -->
+<div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary">pie_chart</span>
+<span class="font-headline-md text-headline-md text-on-surface">제품군별 실적 &amp; 이익 기여도 구조</span>
+</div>
+<span class="font-code-sm text-code-sm text-slate-muted">단위: 원, 조정이익 기준</span>
+</div>
+<!-- Product 1: BCR-A200 -->
+<div class="p-space-md bg-slate-surface rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="px-space-xs py-0.5 rounded bg-primary text-on-primary font-code-sm text-code-sm font-semibold">BCR-A200</span>
+<span class="font-headline-sm text-body-md font-semibold text-on-surface">고하중 로봇 액추에이터 (주력 매출원)</span>
+</div>
+<span class="font-label-md text-label-md px-space-xs py-0.5 rounded bg-risk-amber-bg text-risk-amber font-semibold">마진 압박 (24.5%)</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm pt-space-xs text-body-sm font-body-sm">
+<div>
+<span class="text-slate-muted font-label-md text-label-md block">매출액 (비중 51.5%)</span>
+<span class="font-tabular-data text-tabular-data font-semibold text-on-surface">₩1,521,421,200</span>
+</div>
+<div>
+<span class="text-slate-muted font-label-md text-label-md block">추정원가</span>
+<span class="font-tabular-data text-tabular-data text-on-surface">₩1,149,080,000</span>
+</div>
+<div>
+<span class="text-slate-muted font-label-md text-label-md block">조정이익</span>
+<span class="font-tabular-data text-tabular-data font-semibold text-profit-emerald">₩372,341,200</span>
+</div>
+<div class="text-right">
+<span class="text-slate-muted font-label-md text-label-md block">조정이익률</span>
+<span class="font-kpi-value text-headline-sm text-on-surface font-bold">24.5%</span>
+</div>
+</div>
+<div class="w-full bg-slate-border-subtle rounded-full h-2 overflow-hidden mt-1">
+<div class="bg-primary h-full rounded-full" style="width: 51.5%" title="매출 비중 51.5%"></div>
+</div>
+<span class="font-code-sm text-code-sm text-slate-muted">하반기 하우징 원자재가 상승 및 C017 등 대형 고객 대상 단체 할인(15%) 적용에 따른 마진 하락세</span>
+</div>
+<!-- Product 2: BCR-A100 -->
+<div class="p-space-md bg-slate-surface rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="px-space-xs py-0.5 rounded bg-secondary text-on-secondary font-code-sm text-code-sm font-semibold">BCR-A100</span>
+<span class="font-headline-sm text-body-md font-semibold text-on-surface">소형 로봇 액추에이터 (표준 볼륨)</span>
+</div>
+<span class="font-label-md text-label-md px-space-xs py-0.5 rounded bg-profit-emerald-bg text-profit-emerald font-semibold">견조 (26.0%)</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm pt-space-xs text-body-sm font-body-sm">
+<div>
+<span class="text-slate-muted font-label-md text-label-md block">매출액 (비중 27.5%)</span>
+<span class="font-tabular-data text-tabular-data font-semibold text-on-surface">₩811,767,600</span>
+</div>
+<div>
+<span class="text-slate-muted font-label-md text-label-md block">추정원가</span>
+<span class="font-tabular-data text-tabular-data text-on-surface">₩600,396,000</span>
+</div>
+<div>
+<span class="text-slate-muted font-label-md text-label-md block">조정이익</span>
+<span class="font-tabular-data text-tabular-data font-semibold text-profit-emerald">₩211,371,600</span>
+</div>
+<div class="text-right">
+<span class="text-slate-muted font-label-md text-label-md block">조정이익률</span>
+<span class="font-kpi-value text-headline-sm text-on-surface font-bold">26.0%</span>
+</div>
+</div>
+<div class="w-full bg-slate-border-subtle rounded-full h-2 overflow-hidden mt-1">
+<div class="bg-secondary h-full rounded-full" style="width: 27.5%" title="매출 비중 27.5%"></div>
+</div>
+<span class="font-code-sm text-code-sm text-slate-muted">국내 자동화 설비 라인 고정 납품으로 안정적인 원가율 및 정가 수주 유지</span>
+</div>
+<!-- Product 3: BCR-C100 -->
+<div class="p-space-md bg-slate-surface rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="px-space-xs py-0.5 rounded bg-profit-emerald text-on-primary font-code-sm text-code-sm font-semibold">BCR-C100</span>
+<span class="font-headline-sm text-body-md font-semibold text-on-surface">다축 로봇 통합 제어기 (고부가가치 솔루션)</span>
+</div>
+<span class="font-label-md text-label-md px-space-xs py-0.5 rounded bg-profit-emerald-bg text-profit-emerald font-semibold">최고 마진 (30.3%)</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm pt-space-xs text-body-sm font-body-sm">
+<div>
+<span class="text-slate-muted font-label-md text-label-md block">매출액 (비중 21.0%)</span>
+<span class="font-tabular-data text-tabular-data font-semibold text-on-surface">₩620,345,600</span>
+</div>
+<div>
+<span class="text-slate-muted font-label-md text-label-md block">추정원가</span>
+<span class="font-tabular-data text-tabular-data text-on-surface">₩432,214,000</span>
+</div>
+<div>
+<span class="text-slate-muted font-label-md text-label-md block">조정이익</span>
+<span class="font-tabular-data text-tabular-data font-semibold text-profit-emerald">₩188,131,600</span>
+</div>
+<div class="text-right">
+<span class="text-slate-muted font-label-md text-label-md block">조정이익률</span>
+<span class="font-kpi-value text-headline-sm text-profit-emerald font-bold">30.3%</span>
+</div>
+</div>
+<div class="w-full bg-slate-border-subtle rounded-full h-2 overflow-hidden mt-1">
+<div class="bg-profit-emerald h-full rounded-full" style="width: 21.0%" title="매출 비중 21.0%"></div>
+</div>
+<span class="font-code-sm text-code-sm text-slate-muted">자체 펌웨어 기술 프리미엄으로 30% 초과 마진 달성, 패키지 판매 프로모션 적극 권장</span>
+</div>
+</div>
+<!-- Trend Chart: 2025 Quarterly Trajectory -->
+<div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary">show_chart</span>
+<span class="font-headline-md text-headline-md text-on-surface">2025 분기별 매출 및 조정이익률 추이</span>
+</div>
+<div class="flex items-center gap-space-md text-label-md font-label-md">
+<span class="inline-flex items-center gap-1"><span class="w-3 h-3 rounded bg-primary"></span>매출액(억)</span>
+<span class="inline-flex items-center gap-1"><span class="w-3 h-0.5 bg-loss-crimson"></span>이익률(%)</span>
+</div>
+</div>
+<!-- Inline SVG Financial Variance Chart -->
+<div class="w-full bg-slate-surface rounded-lg p-space-md">
+<svg class="w-full h-48 overflow-visible" preserveaspectratio="none" viewbox="0 0 600 180">
+<!-- Grid lines -->
+<line stroke="#E2E8F0" stroke-dasharray="3,3" stroke-width="1" x1="40" x2="580" y1="20" y2="20"></line>
+<line stroke="#E2E8F0" stroke-dasharray="3,3" stroke-width="1" x1="40" x2="580" y1="60" y2="60"></line>
+<line stroke="#E2E8F0" stroke-dasharray="3,3" stroke-width="1" x1="40" x2="580" y1="100" y2="100"></line>
+<line stroke="#CBD5E1" stroke-width="1.5" x1="40" x2="580" y1="140" y2="140"></line>
+<!-- Left Y-Axis labels (Revenue in 100M KRW) -->
+<text fill="#64748B" font-family="JetBrains Mono" font-size="10" text-anchor="end" x="32" y="24">10억</text>
+<text fill="#64748B" font-family="JetBrains Mono" font-size="10" text-anchor="end" x="32" y="64">7.5억</text>
+<text fill="#64748B" font-family="JetBrains Mono" font-size="10" text-anchor="end" x="32" y="104">5.0억</text>
+<text fill="#64748B" font-family="JetBrains Mono" font-size="10" text-anchor="end" x="32" y="144">0</text>
+<!-- Q1 (매출: 6.8억, 이익률: 28.2%) -->
+<rect fill="#1E40AF" height="85" rx="3" width="46" x="90" y="55"></rect>
+<text fill="#1E40AF" font-family="JetBrains Mono" font-size="11" font-weight="600" text-anchor="middle" x="113" y="47">6.8억</text>
+<text fill="#475569" font-size="12" font-weight="500" text-anchor="middle" x="113" y="158">1분기(Q1)</text>
+<!-- Q2 (매출: 7.9억, 이익률: 27.5%) -->
+<rect fill="#1E40AF" height="100" rx="3" width="46" x="220" y="40"></rect>
+<text fill="#1E40AF" font-family="JetBrains Mono" font-size="11" font-weight="600" text-anchor="middle" x="243" y="32">7.9억</text>
+<text fill="#475569" font-size="12" font-weight="500" text-anchor="middle" x="243" y="158">2분기(Q2)</text>
+<!-- Q3 (매출: 6.9억, 이익률: 22.1% - Margin Dip!) -->
+<rect fill="#316BF3" height="87" rx="3" width="46" x="350" y="53"></rect>
+<text fill="#1E40AF" font-family="JetBrains Mono" font-size="11" font-weight="600" text-anchor="middle" x="373" y="45">6.9억</text>
+<text fill="#475569" font-size="12" font-weight="500" text-anchor="middle" x="373" y="158">3분기(Q3)</text>
+<!-- Q4 (매출: 7.9억, 이익률: 26.7%) -->
+<rect fill="#1E40AF" height="100" rx="3" width="46" x="480" y="40"></rect>
+<text fill="#1E40AF" font-family="JetBrains Mono" font-size="11" font-weight="600" text-anchor="middle" x="503" y="32">7.9억</text>
+<text fill="#475569" font-size="12" font-weight="500" text-anchor="middle" x="503" y="158">4분기(Q4)</text>
+<!-- Margin Trend Line: Q1(113, 50), Q2(243, 55), Q3(373, 92 - Dip), Q4(503, 62) -->
+<polyline fill="none" points="113,50 243,55 373,92 503,62" stroke="#DC2626" stroke-width="2.5"></polyline>
+<!-- Spark Points & Values -->
+<circle cx="113" cy="50" fill="#FFFFFF" r="4" stroke="#DC2626" stroke-width="2"></circle>
+<text fill="#DC2626" font-family="JetBrains Mono" font-size="11" font-weight="700" text-anchor="middle" x="113" y="38">28.2%</text>
+<circle cx="243" cy="55" fill="#FFFFFF" r="4" stroke="#DC2626" stroke-width="2"></circle>
+<text fill="#DC2626" font-family="JetBrains Mono" font-size="11" font-weight="700" text-anchor="middle" x="243" y="72">27.5%</text>
+<circle cx="373" cy="92" fill="#FEF2F2" r="5" stroke="#DC2626" stroke-width="2.5"></circle>
+<text fill="#DC2626" font-family="JetBrains Mono" font-size="11" font-weight="700" text-anchor="middle" x="373" y="112">22.1% (Dip)</text>
+<circle cx="503" cy="62" fill="#FFFFFF" r="4" stroke="#DC2626" stroke-width="2"></circle>
+<text fill="#DC2626" font-family="JetBrains Mono" font-size="11" font-weight="700" text-anchor="middle" x="503" y="80">26.7%</text>
+</svg>
+</div>
+<!-- Trend Analysis Footnote -->
+<div class="p-space-sm rounded bg-loss-crimson-bg flex items-center gap-space-sm text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-loss-crimson text-base">warning</span>
+<span><strong>3분기 마진 급감 분석:</strong> 원자재 단가 인상과 함께 Nordvik Automation 등 대량 수주에 대한 15% 특별할인이 중복되어 22.1%로 최저 마진을 기록하였습니다. 4분기 공급가 조정을 통해 26.7%로 회복되었습니다.</span>
+</div>
+</div>
+</div>
+<!-- Right Column: AI Profit Insight Executive Summary (5 cols) -->
+<div class="xl:col-span-5 flex flex-col gap-space-lg">
+<!-- AI Narrative Container -->
+<div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col gap-space-md relative overflow-hidden">
+<div class="absolute top-0 left-0 bottom-0 w-1 bg-secondary-container"></div>
+<!-- Card Header & Metadata -->
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-lg">psychology</span>
+<span class="font-headline-md text-headline-md text-on-surface">AI Profit Insight Executive Summary</span>
+</div>
+<span class="font-code-sm text-code-sm text-slate-muted">Model: Financial LLM v4.2 • IFRS 회계 검증 신뢰도 99.8%</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-low text-primary font-code-sm text-code-sm font-semibold">실시간 생성</span>
+</div>
+<!-- Section 1: Executive Summary -->
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md uppercase tracking-wider text-slate-muted flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              핵심 요약 (Executive Summary)
+            </span>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed bg-slate-surface p-space-sm rounded">
+              전체 연간 매출은 <strong>₩29.5억 원</strong>으로 목표 대비 104.2% 달성하며 견조한 성장세를 기록하였으나, 특정 해외 고객사(<code class="font-code-sm text-code-sm bg-surface-container-low text-primary px-1 py-0.5 rounded">C017 Nordvik Automation</code> 등)의 과도한 할인율(평균 15%)과 하반기 액추에이터 재료비 상승으로 최종 <strong>조정이익률 26.13%</strong>로 마감되었습니다.
+            </p>
+</div>
+<!-- Section 2: Key Findings -->
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md uppercase tracking-wider text-slate-muted flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-profit-emerald"></span>
+              주요 발견사항 (Key Findings)
+            </span>
+<div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface">
+<div class="p-space-xs rounded bg-profit-emerald-bg flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-profit-emerald text-base mt-0.5">insights</span>
+<div>
+<strong>BCR-C100 제어기 캐시카우:</strong> 이익률 <strong>30.3%</strong>를 기록하며 제품 라인업 중 가장 높은 수익 창출 기여.
+                </div>
+</div>
+<div class="p-space-xs rounded bg-surface-container-low flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">pie_chart</span>
+<div>
+<strong>BCR-A200 매출 편중:</strong> 전체 매출의 <strong>51.5%</strong>를 지탱하고 있으나, 이익률(24.5%)은 전사 평균(26.1%)을 하회하여 마진 희석 요인으로 작용.
+                </div>
+</div>
+</div>
+</div>
+<!-- Section 3: Risk Points -->
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md uppercase tracking-wider text-loss-crimson flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-loss-crimson"></span>
+              수익성 리스크 (Critical Risk Points)
+            </span>
+<div class="flex flex-col gap-space-xs font-body-sm text-body-sm">
+<div class="p-space-xs rounded bg-loss-crimson-bg text-on-surface flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-loss-crimson text-base mt-0.5">report_problem</span>
+<div>
+<strong>C017(Nordvik) 공헌이익 잠식:</strong> 연간 2억 원의 매출을 올렸으나 15.0% 할인과 고액 배송비(₩7.8M) 부담으로 실질 마진이 16.0%로 급락.
+                </div>
+</div>
+<div class="p-space-xs rounded bg-risk-amber-bg text-on-surface flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-risk-amber text-base mt-0.5">local_shipping</span>
+<div>
+<strong>물류비 및 특수사양 변경비 전가율 미흡:</strong> 해외 원거리 배송 건(건당 ₩260,000) 및 개별 커스텀 비용 ₩8,200,000 중 고객사 실청구율이 40% 미만에 불과.
+                </div>
+</div>
+</div>
+</div>
+<!-- Section 4: Recommended CFO Actions -->
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              CFO 권장 실행 과제 (Action Plan)
+            </span>
+<ol class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface pl-2 list-decimal list-inside">
+<li class="p-space-xs rounded bg-slate-surface">
+<strong>BCR-A200 수주 하한선 수립:</strong> 대형 견적 시 <span class="font-code-sm text-code-sm bg-surface-container-high text-primary px-1 py-0.5 rounded font-semibold">최소 조정이익률 22% 가이드라인</span> 필수 설정.
+              </li>
+<li class="p-space-xs rounded bg-slate-surface">
+<strong>비용 전가 조건 표준계약화:</strong> 평균 할인율 10% 초과 고객사는 해외 배송비 및 사양변경비를 100% 고객 전가 원칙으로 조항 개정.
+              </li>
+<li class="p-space-xs rounded bg-slate-surface">
+<strong>고마진 패키지 번들링 판매:</strong> BCR-A200 구매 시 마진 30.3%의 BCR-C100 복합 패키지 구매 유도 정책 수립.
+              </li>
+</ol>
+</div>
+<!-- AI Sign-off stamp -->
+<div class="pt-space-xs flex items-center justify-between text-slate-muted font-code-sm text-code-sm">
+<span>공인회계사(CPA) 감사기준 준수 확인</span>
+<span>최종 업데이트: 2025.12.31 23:59 KST</span>
+</div>
+</div>
+<!-- Quick Simulator Preview Widget -->
+<div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary">tune</span>
+<span class="font-headline-md text-body-lg font-bold text-on-surface">할인 시뮬레이션 즉시 진단</span>
+</div>
+<a class="text-secondary font-headline-sm text-label-md hover:underline flex items-center gap-0.5" data-path="discount-and-margin-simulator" href="#">
+              전체 시뮬레이터로 이동
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<span class="font-body-sm text-body-sm text-slate-muted">
+            기준 제품: <strong>BCR-A200</strong> 30대 일괄 견적 기준 (정상 납품가 ₩150,000,000)
+          </span>
+<div class="grid grid-cols-3 gap-space-sm text-center">
+<div class="p-space-sm rounded bg-slate-surface flex flex-col gap-1">
+<span class="font-label-md text-label-md text-slate-muted">할인 0% (정가)</span>
+<span class="font-kpi-value text-headline-sm text-profit-emerald font-bold">25.2%</span>
+<span class="font-code-sm text-code-sm text-slate-muted">조정이익 ₩37.8M</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-md text-label-md text-primary font-medium">할인 5% (권장 한도)</span>
+<span class="font-kpi-value text-headline-sm text-primary font-bold">21.2%</span>
+<span class="font-code-sm text-code-sm text-slate-muted">조정이익 ₩30.2M</span>
+</div>
+<div class="p-space-sm rounded bg-loss-crimson-bg flex flex-col gap-1">
+<span class="font-label-md text-label-md text-loss-crimson font-medium">할인 10% (위험 수위)</span>
+<span class="font-kpi-value text-headline-sm text-loss-crimson font-bold">16.9%</span>
+<span class="font-code-sm text-code-sm text-loss-crimson">마진 8.3%p 잠식</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-slate-muted">C017 현행 조건(15% 할인) 적용 시 예상 이익률은 <strong>12.4%</strong>로 급감</span>
+<button class="px-space-sm py-1 bg-surface-container-high text-primary rounded font-label-md text-label-md hover:bg-secondary-fixed transition-colors" type="button">
+              시뮬레이션 복제
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom High-Priority Decision Ledger Table: Customer Risk Radar -->
+<div class="w-full bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden flex flex-col">
+<!-- Table Header & Controls -->
+<div class="p-space-lg flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-loss-crimson">radar</span>
+<span class="font-headline-md text-headline-md text-on-surface">수익성 관리 요주의 고객 리스트 (Customer Risk Radar)</span>
+</div>
+<span class="font-body-sm text-body-sm text-slate-muted">총 40여 고객사 중 고할인(&gt;8%) 및 물류비 누적 발생 상위 4개사 우선 검토</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="inline-flex rounded-lg p-0.5 bg-slate-surface">
+<button class="px-space-sm py-1 rounded text-label-md font-label-md bg-surface-container-lowest shadow-sm font-semibold text-primary" type="button">위험도순</button>
+<button class="px-space-sm py-1 rounded text-label-md font-label-md text-slate-muted hover:text-on-surface" type="button">매출순</button>
+<button class="px-space-sm py-1 rounded text-label-md font-label-md text-slate-muted hover:text-on-surface" type="button">마진순</button>
+</div>
+<button class="inline-flex items-center gap-1 px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface text-label-md font-label-md hover:bg-slate-surface" type="button">
+<span class="material-symbols-outlined text-sm text-slate-muted">filter_list</span>
+            조건 필터
+          </button>
+</div>
+</div>
+<!-- Ledger Table -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-surface text-slate-muted font-label-md text-label-md uppercase tracking-wider">
+<th class="py-space-sm px-space-md text-center">고객ID</th>
+<th class="py-space-sm px-space-md">고객사명</th>
+<th class="py-space-sm px-space-md text-center">지역 구분</th>
+<th class="py-space-sm px-space-md text-right">총 실현매출</th>
+<th class="py-space-sm px-space-md text-right">평균 할인율</th>
+<th class="py-space-sm px-space-md text-right">누적 배송비</th>
+<th class="py-space-sm px-space-md text-right">조정이익</th>
+<th class="py-space-sm px-space-md text-right">조정이익률</th>
+<th class="py-space-sm px-space-md">CFO 판단 가이드 &amp; 조치 방향</th>
+<th class="py-space-sm px-space-md text-center">조치</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm divide-y-0 text-on-surface">
+<!-- Row 1: C017 Nordvik (High Risk) -->
+<tr class="hover:bg-slate-surface transition-colors">
+<td class="py-space-sm px-space-md text-center font-code-sm text-code-sm text-primary font-bold">C017</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-semibold text-on-surface">Nordvik Automation</span>
+<span class="px-1.5 py-0.2 rounded-full bg-loss-crimson-bg text-loss-crimson font-code-sm text-code-sm font-semibold">고위험</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-label-md text-label-md">해외 (유럽)</span>
+</td>
+<td class="py-space-sm px-space-md text-right font-tabular-data text-tabular-data font-semibold">₩200,000,000</td>
+<td class="py-space-sm px-space-md text-right font-tabular-data text-tabular-data text-loss-crimson font-bold">15.0%</td>
+<td class="py-space-sm px-space-md text-right font-tabular-data text-tabular-data text-slate-muted">₩7,800,000</td>
+<td class="py-space-sm px-space-md text-right font-tabular-data text-tabular-data font-semibold">₩32,000,000</td>
+<td class="py-space-sm px-space-md text-right">
+<span class="px-space-xs py-0.5 rounded bg-loss-crimson-bg text-loss-crimson font-tabular-data text-tabular-data font-bold">16.0%</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 text-loss-crimson font-medium">
+<span class="material-symbols-outlined text-sm">handshake</span>
+                  단가 재협상 요망 (할인율 8% 축소 및 국제운송비 전가 조건)
+                </span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<button class="px-space-xs py-1 rounded bg-loss-crimson text-on-error font-label-md text-label-md hover:opacity-90" type="button">
+                  단가 통보서
+                </button>
+</td>
+</tr>
+<!-- Row 2: C009 Apex Robotics (Medium Risk) -->
+<tr class="hover:bg-slate-surface transition-colors">
+<td class="py-space-sm px-space-md text-center font-code-sm text-code-sm text-primary font-bold">C009</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-semibold text-on-surface">Apex Robotics Inc.</span>
+<span class="px-1.5 py-0.2 rounded-full bg-risk-amber-bg text-risk-amber font-code-sm text-code-sm font-semibold">유의</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-label-md text-label-md">해외 (북미)</span>
+</td>
+<td class="py-space-sm px-space-md text-right font-tabular-data text-tabular-data font-semibold">₩420,000,000</td>
+<td class="py-space-sm px-space-md text-right font-tabular-data text-tabular-data text-risk-amber font-bold">12.0%</td>
+<td class="py-space-sm px-space-md text-right font-tabular-data text-tabular-data text-slate-muted">₩11,500,000</td>
+<td class="py-space-sm px-space-md text-right font-tabular-data text-tabular-data font-semibold">₩88,200,000</td>
+<td class="py-space-sm px-space-md text-right">
+<span class="px-space-xs py-0.5 rounded bg-risk-amber-bg text-risk-amber font-tabular-data text-tabular-data font-bold">21.0%</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 text-risk-amber font-medium">
+<span class="material-symbols-outlined text-sm">receipt_long</span>
+                  특수사양 변경비 유상 청구 및 BCR-C100 제어기 교차 판매 유도
+                </span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<button class="px-space-xs py-1 rounded bg-surface-container-high text-primary font-label-md text-label-md hover:bg-secondary-fixed" type="button">
+                  상세 내역
+                </button>
+</td>
+</tr>
+<!-- Row 3: C004 한양오토메틱스 (Stable) -->
+<tr class="hover:bg-slate-surface transition-colors">
+<td class="py-space-sm px-space-md text-center font-code-sm text-code-sm text-primary font-bold">C004</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-semibold text-on-surface">한양오토메틱스</span>
+<span class="px-1.5 py-0.2 rounded-full bg-slate-surface text-slate-muted font-code-sm text-code-sm font-semibold">정상</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-label-md text-label-md">국내</span>
+</td>
+<td class="py-space-sm px-space-md text-right font-tabular-data text-tabular-data font-semibold">₩315,000,000</td>
+<td class="py-space-sm px-space-md text-right font-tabular-data text-tabular-data text-on-surface font-medium">8.5%</td>
+<td class="py-space-sm px-space-md text-right font-tabular-data text-tabular-data text-slate-muted">₩2,100,000</td>
+<td class="py-space-sm px-space-md text-right font-tabular-data text-tabular-data font-semibold">₩75,600,000</td>
+<td class="py-space-sm px-space-md text-right">
+<span class="px-space-xs py-0.5 rounded bg-slate-surface text-on-surface font-tabular-data text-tabular-data font-bold">24.0%</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="text-slate-muted">안정적 납품 기조 유지 중 / 분기 결제주기(30일) 준수 양호</span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<button class="px-space-xs py-1 rounded bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-slate-surface" type="button">
+                  원장 조회
+                </button>
+</td>
+</tr>
+<!-- Row 4: C001 우수고객 01 (Healthy) -->
+<tr class="hover:bg-slate-surface transition-colors">
+<td class="py-space-sm px-space-md text-center font-code-sm text-code-sm text-primary font-bold">C001</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-semibold text-on-surface">동남정밀로보틱스</span>
+<span class="px-1.5 py-0.2 rounded-full bg-profit-emerald-bg text-profit-emerald font-code-sm text-code-sm font-semibold">우수</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-label-md text-label-md">국내</span>
+</td>
+<td class="py-space-sm px-space-md text-right font-tabular-data text-tabular-data font-semibold">₩185,000,000</td>
+<td class="py-space-sm px-space-md text-right font-tabular-data text-tabular-data text-profit-emerald font-bold">3.0%</td>
+<td class="py-space-sm px-space-md text-right font-tabular-data text-tabular-data text-slate-muted">₩1,050,000</td>
+<td class="py-space-sm px-space-md text-right font-tabular-data text-tabular-data font-semibold">₩53,650,000</td>
+<td class="py-space-sm px-space-md text-right">
+<span class="px-space-xs py-0.5 rounded bg-profit-emerald-bg text-profit-emerald font-tabular-data text-tabular-data font-bold">29.0%</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 text-profit-emerald font-medium">
+<span class="material-symbols-outlined text-sm">verified</span>
+                  고마진 표준 모델 대량 수주 고객 / 납기 우선 배정 파트너
+                </span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<button class="px-space-xs py-1 rounded bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-slate-surface" type="button">
+                  원장 조회
+                </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Pagination -->
+<div class="px-space-lg py-space-sm bg-slate-surface flex items-center justify-between text-body-sm font-body-sm text-slate-muted">
+<span>총 4개 요주의/우수 대표 고객사 표시 (전체 42개 거래처)</span>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-sm py-0.5 rounded bg-surface-container-lowest text-on-surface text-label-md font-label-md shadow-sm" type="button">이전</button>
+<span class="font-tabular-data text-tabular-data text-on-surface">1 / 11 페이지</span>
+<button class="px-space-sm py-0.5 rounded bg-surface-container-lowest text-on-surface text-label-md font-label-md shadow-sm" type="button">다음</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Client-side Script -->
+<script>
+    (function initDashboardInteractivity() {
+      const btnAiDraft = document.getElementById('btnAiDraft');
+      const btnReaudit = document.getElementById('btnReaudit');
+      const btnPdf = document.getElementById('btnPdfExport');
+
+      if (btnAiDraft) {
+        btnAiDraft.addEventListener('click', () => {
+          const originalText = btnAiDraft.innerHTML;
+          btnAiDraft.innerHTML = `
+            <span class="material-symbols-outlined text-base animate-spin">refresh</span>
+            <span>AI 분석 엔진 실행 중...</span>
+          `;
+          btnAiDraft.disabled = true;
+          setTimeout(() => {
+            btnAiDraft.innerHTML = `
+              <span class="material-symbols-outlined text-base text-profit-emerald">check_circle</span>
+              <span>AI 보고서 최신화 완료</span>
+            `;
+            setTimeout(() => {
+              btnAiDraft.innerHTML = originalText;
+              btnAiDraft.disabled = false;
+            }, 2500);
+          }, 1200);
+        });
+      }
+
+      if (btnReaudit) {
+        btnReaudit.addEventListener('click', () => {
+          const originalHtml = btnReaudit.innerHTML;
+          btnReaudit.innerHTML = `
+            <span class="material-symbols-outlined text-base text-primary animate-spin">sync</span>
+            <span>원가 36건 재대조 중...</span>
+          `;
+          setTimeout(() => {
+            btnReaudit.innerHTML = `
+              <span class="material-symbols-outlined text-base text-profit-emerald">done_all</span>
+              <span>검증 무결성 100% 확인</span>
+            `;
+            setTimeout(() => {
+              btnReaudit.innerHTML = originalHtml;
+            }, 2000);
+          }, 900);
+        });
+      }
+
+      if (btnPdf) {
+        btnPdf.addEventListener('click', () => {
+          window.print();
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-slate-border py-space-md"><div class="w-full px-space-lg flex flex-col md:flex-row items-center justify-between gap-space-sm text-label-md font-label-md text-slate-muted"><div><span>© 2025 Blue Cloud Robotics Inc. Profit Insight AI Engine. All rights reserved.</span></div><div class="flex items-center gap-space-md"><span class="font-code-sm text-code-sm">Security Level: Tier-1 Bank Grade AES-256</span><span class="text-slate-border">•</span><span>공인회계사(CPA) 감사 인증 기준 시스템</span></div></div></footer></body></html>
