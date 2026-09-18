@@ -2,16 +2,38 @@ from contextlib import contextmanager
 from pathlib import Path
 from io import BytesIO
 from datetime import datetime
-import json, os, sqlite3, uuid, zipfile
+import base64, json, os, secrets, sqlite3, uuid, zipfile
 from fastapi import FastAPI, UploadFile, HTTPException
 from fastapi.responses import Response
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from typing import List
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.responses import Response as StarletteResponse
 from openpyxl import load_workbook, Workbook
 from .engine import validate, analyze, calculate, demo_book
 
 ROOT=Path(os.environ.get('PROFIT_DATA_DIR','.data')); ROOT.mkdir(exist_ok=True,parents=True)
 app=FastAPI(title='Profit Insight AI',version='0.1.0')
+
+BASIC_AUTH_USER=os.environ.get('BASIC_AUTH_USER')
+BASIC_AUTH_PASS=os.environ.get('BASIC_AUTH_PASS','')
+
+class BasicAuthMiddleware(BaseHTTPMiddleware):
+    """BASIC_AUTH_USER가 설정된 배포 환경에서만 전체 앱(정적 화면 + API)을 보호합니다.
+    로컬 개발(env 미설정)에서는 그대로 통과시켜 기존 워크플로를 바꾸지 않습니다."""
+    async def dispatch(self,request,call_next):
+        if not BASIC_AUTH_USER or request.url.path=='/api/health':
+            return await call_next(request)
+        auth=request.headers.get('authorization','')
+        if auth.startswith('Basic '):
+            try: user,pw=base64.b64decode(auth[6:]).decode().split(':',1)
+            except Exception: user,pw='',''
+            if secrets.compare_digest(user,BASIC_AUTH_USER) and secrets.compare_digest(pw,BASIC_AUTH_PASS):
+                return await call_next(request)
+        return StarletteResponse(status_code=401,headers={'WWW-Authenticate':'Basic realm="Profit Insight AI"'})
+
+app.add_middleware(BasicAuthMiddleware)
 
 @contextmanager
 def db():
@@ -132,3 +154,7 @@ def report(req:ReportRequest):
     top=max(a['by_product'],key=lambda r:r['adjusted_margin']); low=min(a['by_customer'],key=lambda r:r['adjusted_margin'])
     result=dict(title=f"{a['period']} 제품·고객별 수익성 분석 보고서",mode='rule_based',analysis_id=req.analysis_id,is_demo=a['is_demo'],executive_summary=f"총 매출 {a['revenue']:,.0f}원, 조정이익 {a['adjusted_profit']:,.0f}원, 조정이익률 {a['adjusted_margin']:.2%}입니다. 검증된 거래 {a['count']}건을 기준으로 집계했습니다.",key_findings=[f"{r['product_name']}({r['id']}): 매출 {r['revenue']:,.0f}원, 조정이익 {r['adjusted_profit']:,.0f}원, 조정이익률 {r['adjusted_margin']:.2%}." for r in a['by_product']],risk_points=[f"{low['customer_name']}의 조정이익률은 {low['adjusted_margin']:.2%}, 거래별 단순 평균 할인율은 {low['avg_discount']:.2%}입니다. 배송비 {low['shipping']:,.0f}원과 사양변경비 {low['custom']:,.0f}원이 차감되었습니다."],recommended_actions=[f"{low['customer_name']} 추가 할인 전 시뮬레이션으로 목표 이익률을 확인하세요.",f"{top['product_name']}의 제품 믹스 확대 가능성을 검토하세요.",'조정이익은 공통 판관비·연구개발비·이자·법인세를 제외한 관리회계 지표입니다. 최종 판단은 CFO 검토가 필요합니다.'],generated_at=datetime.now().isoformat())
     result['report_id']=save('report',result); return result
+
+DIST_DIR=Path(__file__).resolve().parent.parent/'dist'
+if DIST_DIR.is_dir():
+    app.mount('/',StaticFiles(directory=DIST_DIR,html=True),name='static')

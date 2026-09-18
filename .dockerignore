@@ -1,0 +1,12 @@
+.git
+node_modules
+.venv
+dist
+.data
+.pytest_cache
+test-results
+playwright-report
+xref
+tests
+*.tsbuildinfo
+README.md
